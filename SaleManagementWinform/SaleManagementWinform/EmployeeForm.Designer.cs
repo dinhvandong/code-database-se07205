@@ -1,6 +1,6 @@
 ﻿namespace SaleManagementWinform
 {
-    partial class CustomerForm
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dgv_customer = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dgv_employee = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_employee)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -55,69 +55,68 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dgv_customer);
+            this.splitContainer1.Panel2.Controls.Add(this.dgv_employee);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 81;
+            this.splitContainer1.SplitterDistance = 97;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // dgv_customer
-            // 
-            this.dgv_customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_customer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_customer.Location = new System.Drawing.Point(0, 0);
-            this.dgv_customer.Name = "dgv_customer";
-            this.dgv_customer.RowHeadersWidth = 51;
-            this.dgv_customer.RowTemplate.Height = 24;
-            this.dgv_customer.Size = new System.Drawing.Size(800, 365);
-            this.dgv_customer.TabIndex = 0;
-            this.dgv_customer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_customer_CellContentClick_1);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Violet;
-            this.button1.Location = new System.Drawing.Point(30, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 48);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Home";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Violet;
-            this.button2.Location = new System.Drawing.Point(132, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 48);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Violet;
-            this.button3.Location = new System.Drawing.Point(233, 12);
+            this.button3.Location = new System.Drawing.Point(220, 34);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 48);
+            this.button3.Size = new System.Drawing.Size(75, 40);
             this.button3.TabIndex = 2;
             this.button3.Text = "F5";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // CustomerForm
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Violet;
+            this.button2.Location = new System.Drawing.Point(123, 34);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 40);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Violet;
+            this.button1.Location = new System.Drawing.Point(32, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 40);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Home";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // dgv_employee
+            // 
+            this.dgv_employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_employee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_employee.Location = new System.Drawing.Point(0, 0);
+            this.dgv_employee.Name = "dgv_employee";
+            this.dgv_employee.RowHeadersWidth = 51;
+            this.dgv_employee.RowTemplate.Height = 24;
+            this.dgv_employee.Size = new System.Drawing.Size(800, 349);
+            this.dgv_employee.TabIndex = 0;
+            this.dgv_employee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employee_CellContentClick);
+            // 
+            // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "CustomerForm";
-            this.Text = "CustomerForm";
+            this.Name = "EmployeeForm";
+            this.Text = "EmployeeForm";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_employee)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,9 +124,9 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dgv_employee;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dgv_customer;
+        private System.Windows.Forms.Button button3;
     }
 }

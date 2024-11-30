@@ -17,9 +17,7 @@ namespace SaleManagementWinform
     {
 
 
-        public static string connectionString
-            = "Server=DONGVANDINH\\MISASME2023;Database=SALE_MANGEMENT_DB;Trusted_Connection=True;";
-
+        
         public MainForm()
         {
             InitializeComponent();
@@ -103,9 +101,9 @@ namespace SaleManagementWinform
         private void LoadData()
         {
             // SQL query to fetch data
-            string query = "SELECT * FROM Product";
+            string query = "SELECT * FROM Product where active = 1";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Connection.SQLConnection))
             {
                 try
                 {
@@ -241,6 +239,17 @@ namespace SaleManagementWinform
 
 
             LoadData();
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            MenuForm menu = new MenuForm();
+            menu.Show(); // Hiển thị màn hình Menu lên đầu  
+            // Ẩn giao diện của màn hình hiện tại 
+            this.Hide();
 
 
         }

@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace SaleManagementWinform
 {
-    public partial class AddProductForm : Form
+    public partial class AddCustomer : Form
     {
-
-      
-        public AddProductForm()
+        public AddCustomer()
         {
             InitializeComponent();
+
+            // thiết lập giao diện ở trung tâm màn hình 
 
             // Set the form to start in the center of the screen
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -32,24 +32,31 @@ namespace SaleManagementWinform
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string MaSP = txb_code.Text.ToString();
-            string TenSP = txb_name.Text.ToString();
-            int SoLuong = int.Parse(txb_amount.Text.ToString());
-            int Gia = int.Parse(txb_price.Text.ToString());
 
-            InsertData(MaSP, TenSP, SoLuong, Gia);
+            string code = tbx_code.Text;
+            string name = tbx_name.Text;
+            string phone = tbx_phone.Text;
+            string address = tbx_address.Text;
+
+
+            InsertData(code, name, phone, address);
+
+
+
 
 
 
         }
 
 
-        private void InsertData(string code, string name, int ammount, int price)
+
+
+        private void InsertData(string code, string name, string phoneNumber, string address)
         {
             // Connection string to your database
 
             // SQL query to insert data
-            string query = "INSERT INTO Product (Code, Name, Quantity, Price, active) VALUES (@Code, @Name, @Quantity, @Price, 1)";
+            string query = "INSERT INTO Customer (code, name, phoneNumber, address, active) VALUES (@code, @name, @phoneNumber, @address, 1)";
 
             using (SqlConnection connection = new SqlConnection(Connection.SQLConnection))
             {
@@ -62,13 +69,10 @@ namespace SaleManagementWinform
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         // Add parameters to prevent SQL injection
-                        command.Parameters.AddWithValue("@Name", name);
-
-                        command.Parameters.AddWithValue("@Code", code);
-                        command.Parameters.AddWithValue("@Quantity", ammount);
-                        command.Parameters.AddWithValue("@Price", price);
-
-
+                        command.Parameters.AddWithValue("@name", name);
+                        command.Parameters.AddWithValue("@code", code);
+                        command.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+                        command.Parameters.AddWithValue("@address", address);
                         // Execute the command
                         int rowsAffected = command.ExecuteNonQuery();
                         MessageBox.Show($"{rowsAffected} row(s) inserted successfully.");

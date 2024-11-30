@@ -43,7 +43,17 @@ namespace SaleManagementWinform
 
             CustomerForm customerForm = new CustomerForm();
             customerForm.Show();
+            this.Hide();
             
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            EmployeeForm empForm = new EmployeeForm();
+            empForm.Show();
+            this.Hide();
+
         }
     }
 }

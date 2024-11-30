@@ -13,3 +13,7 @@ C:\FPT\2024 FALL\Database-SQL\SaleManagementWinform\SaleManagementWinform\obj\De
 C:\FPT\2024 FALL\Database-SQL\SaleManagementWinform\SaleManagementWinform\obj\Debug\SaleManagementWinform.CustomerForm.resources
 C:\FPT\2024 FALL\Database-SQL\SaleManagementWinform\SaleManagementWinform\obj\Debug\SaleManagementWinform.AddProductForm.resources
 C:\FPT\2024 FALL\Database-SQL\SaleManagementWinform\SaleManagementWinform\obj\Debug\SaleManagementWinform.UpdateProduct.resources
+C:\FPT\2024 FALL\Database-SQL\SaleManagementWinform\SaleManagementWinform\obj\Debug\SaleManagementWinform.AddCustomer.resources
+C:\FPT\2024 FALL\Database-SQL\SaleManagementWinform\SaleManagementWinform\obj\Debug\SaleManagementWinform.UpdateCustomer.resources
+C:\FPT\2024 FALL\Database-SQL\SaleManagementWinform\SaleManagementWinform\obj\Debug\SaleManagementWinform.EmployeeForm.resources
+C:\FPT\2024 FALL\Database-SQL\SaleManagementWinform\SaleManagementWinform\obj\Debug\SaleManagementWinform.AddEmployee.resources

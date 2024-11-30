@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,10 +31,62 @@ namespace SaleManagementWinform
         private void button1_Click(object sender, EventArgs e)
         {
 
-            MenuForm main = new MenuForm();
-            main.Show();
-            this.Hide();
 
+            string username = txb_username.Text;
+            string password = txb_password.Text;
+
+            string hashPassword = Utils.HashPassword(password);
+
+            bool checkLogin = CheckLogin(username, hashPassword);
+
+            if (checkLogin)
+            {
+
+                MenuForm main = new MenuForm();
+                main.Show();
+                this.Hide();
+
+            }else
+            {
+
+
+                MessageBox.Show("Username or password is incorrect !");
+            }
+
+
+
+
+
+        }
+
+
+        private bool CheckLogin(string username, string hashedPassword)
+        {
+            string query = "SELECT password FROM Employee WHERE username = @username";
+
+            using (SqlConnection connection = new SqlConnection(Connection.SQLConnection))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@username", username);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        string storedHash = result.ToString(); // Retrieved hashed password
+                        return storedHash == hashedPassword;  // Compare the hashes
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+            }
+
+            return false; // Return false if username not found or any error occurs
         }
     }
 }

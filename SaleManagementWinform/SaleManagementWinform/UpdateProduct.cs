@@ -10,15 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace SaleManagementWinform
 {
     public partial class UpdateProduct : Form
     {
 
-        public static string connectionString
-           = "Server=DONGVANDINH\\MISASME2023;Database=SALE_MANGEMENT_DB;Trusted_Connection=True;";
-
+       
         public UpdateProduct(string code, string name, int price, int quantity)
         {
             InitializeComponent();
@@ -42,7 +41,7 @@ namespace SaleManagementWinform
         {
             string query = "UPDATE Product SET Name = @Name, Price = @Price, Quantity = @Quantity WHERE Code = @Code";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(Connection.SQLConnection))
             {
                 try
                 {
@@ -79,9 +78,11 @@ namespace SaleManagementWinform
 
         private void DeleteProductFromDatabase(string code)
         {
-            string query = "DELETE FROM Product WHERE Code = @Code";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+
+            string query = "UPDATE Product SET active = 0 WHERE code = @code";
+
+            using (SqlConnection connection = new SqlConnection(Connection.SQLConnection))
             {
                 try
                 {
@@ -89,15 +90,20 @@ namespace SaleManagementWinform
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        // Add parameter to prevent SQL injection
-                        command.Parameters.AddWithValue("@Code", code);
+                        // Add parameters to prevent SQL injection
+                        /*  command.Parameters.AddWithValue("@Code", code);
+                          command.Parameters.AddWithValue("@Name", name);
+                          command.Parameters.AddWithValue("@Price", price);
+                          command.Parameters.AddWithValue("@Quantity", quantity);*/
 
-                        // Execute the delete command
+                        // Execute the update command
+
+                        command.Parameters.AddWithValue("@code", code);
                         int rowsAffected = command.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Product deleted successfully.");
+                            MessageBox.Show("Product updated successfully.");
                         }
                         else
                         {
@@ -110,6 +116,37 @@ namespace SaleManagementWinform
                     MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
+            /* string query = "DELETE FROM Product WHERE Code = @Code";
+
+             using (SqlConnection connection = new SqlConnection(Connection.SQLConnection))
+             {
+                 try
+                 {
+                     connection.Open();
+
+                     using (SqlCommand command = new SqlCommand(query, connection))
+                     {
+                         // Add parameter to prevent SQL injection
+                         command.Parameters.AddWithValue("@Code", code);
+
+                         // Execute the delete command
+                         int rowsAffected = command.ExecuteNonQuery();
+
+                         if (rowsAffected > 0)
+                         {
+                             MessageBox.Show("Product deleted successfully.");
+                         }
+                         else
+                         {
+                             MessageBox.Show("No product found with the specified code.");
+                         }
+                     }
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show("An error occurred: " + ex.Message);
+                 }
+             }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
